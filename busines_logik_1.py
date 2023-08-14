@@ -1,10 +1,7 @@
-import main
 import busines_logik_2
 import controller
 import os
 import re
-
-
 
 
 def add_book():
@@ -13,7 +10,8 @@ def add_book():
     book_author = input("Введите автора книги: ")
     book_year_of_publishing = busines_logik_2.check_date()
     book_genre = input("Введите жанр книги: ")
-    info = f"{book_name}, {book_author.title()}, {book_year_of_publishing}, {book_genre.title()};\n"
+    info = (f'{book_name}, {book_author.title()}, {book_year_of_publishing}, '
+            f'{book_genre.title()};\n')
     file = open("text.txt", "a", encoding="utf8")
     file.write(info)
     file.close()
@@ -28,6 +26,7 @@ def read_catalog():
     catalog = busines_logik_2.get_catalog()
     print(catalog)
     controller.print_commands()
+
 
 def search_book():
     os.system('cls||clear')
@@ -46,6 +45,7 @@ def search_book():
         print(el)
     controller.print_commands()
 
+
 def delite_book():
     os.system('cls||clear')
     name_del = busines_logik_2.get_name_del()
@@ -57,15 +57,12 @@ def delite_book():
         if name_del == lst_1[0] and len(lst_1) > 1:
             count += 1
     if count != 0:
-         busines_logik_2.search_del(name_del, lst)
+        busines_logik_2.search_del(name_del, lst)
     os.system('cls||clear')
     print("-------------------------------")
     print("По вашему запросу ничего не найдено!")
     controller.print_commands()
 
-
-def sort_book():
-    ...
 
 def treatment_command(command):
     if command.upper() == "R":
@@ -76,7 +73,5 @@ def treatment_command(command):
         search_book()
     elif command.upper() == "D":
         delite_book()
-
     else:
         exit()
-

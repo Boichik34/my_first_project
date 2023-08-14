@@ -1,7 +1,7 @@
-import busines_logik_1
 import controller
 import re
 import os
+
 
 def chek_book():
     os.system('cls||clear')
@@ -28,7 +28,7 @@ def get_catalog():
     file = open("text.txt", "r", encoding="utf8")
     catalog = file.read()
     file.close()
-    if len(catalog) !=0:
+    if len(catalog) != 0:
         return catalog
     else:
         print("------------------------------")
@@ -51,10 +51,11 @@ def get_name_del() -> str:
 >>>''')
     return name_del.title()
 
+
 def search_del(name, lst):
     file = open("new_text.txt", "w", encoding="utf8")
     for el in lst:
-        lst_1 = re.split(", |;", el)
+        lst_1 = re.split(", ", el)
         if name != lst_1[0] and len(lst_1) > 1:
             file.write(f"{el}\n")
     os.remove("text.txt")
