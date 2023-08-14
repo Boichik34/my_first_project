@@ -6,7 +6,9 @@ import os
 def chek_book():
     os.system('cls||clear')
     print("------------------------------")
-    book_name = input("Введите название книги,которую хотите добавить: ")
+    book_name = input(f'''
+Введите название книги,которую хотите добавить:
+>>>''')
     file = open("text.txt", "r", encoding="utf8")
     lst = file.read()
     lst_1 = lst.split("\n")
@@ -37,11 +39,15 @@ def get_catalog():
 
 
 def check_date():
-    data = input("Введите год издания:")
+    data = input(f'''
+Введите год издания:
+>>>''')
     while not data.isdigit() or len(data) != 4 or int(data) > 2023:
         print("------------------------------")
         print("Некорректный ввод!")
-        data = input("Введите год издания в формате '0000'")
+        data = input(f'''
+Введите год издания в формате '0000'
+>>>''')
     return data
 
 

@@ -7,9 +7,13 @@ import re
 def add_book():
     os.system('cls||clear')
     book_name = busines_logik_2.chek_book()
-    book_author = input("Введите автора книги: ")
+    book_author = input(f'''
+Введите автора книги:
+>>>''')
     book_year_of_publishing = busines_logik_2.check_date()
-    book_genre = input("Введите жанр книги: ")
+    book_genre = input(f'''
+Введите жанр книги:
+>>>''')
     info = (f'{book_name}, {book_author.title()}, {book_year_of_publishing}, '
             f'{book_genre.title()};\n')
     file = open("text.txt", "a", encoding="utf8")
